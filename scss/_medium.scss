@@ -1,0 +1,92 @@
+@media (min-width: 768px) {
+	.title {
+		padding-top: 8em;
+		border-bottom-left-radius: 35%;
+
+		h1 {
+			font-size: 3rem;
+		}
+
+		p {
+			font-size: 1.6rem;
+
+			.line-break {
+				display: inline;
+			}
+
+			&::after {
+				top: -320%;
+			}
+		}
+	}
+
+	.container {
+		.slider-box {
+			top: -600%;
+
+			&__top {
+				padding: 3em 4em;
+				&-info {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					font-size: 1.8rem;
+				}
+
+				.price {
+					&--one {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+
+					&--two {
+						display: none;
+					}
+
+					&-amount {
+						margin-right: 0.1em;
+						font-size: 4rem;
+					}
+				}
+
+				&-billing {
+					p {
+						
+
+						&:first-of-type {
+							padding-left: 5em;
+						}
+					}
+
+					.discount {
+						&--one {
+							display: inline-block;
+							margin-left: 0.5em;
+						}
+						&--two {
+							display: none;
+						}
+					}
+				}
+			}
+
+			&__bottom {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 3em 4em;
+
+				&-list {
+					font-size: 1.5rem;
+					text-align: left;
+				}
+
+				&-btn {
+					margin-bottom: 2em;
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,258 @@
+@import '_colors';
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: $very-pale-blue;
+	font-family: 'Manrope', sans-serif;
+	font-size: 1.4rem;
+	color: $grayish-blue;
+}
+
+.title {
+	padding: 6em 2em 30vh;
+	background-color: $lighter-grayish-blue;
+	border-bottom-left-radius: 50%;
+	text-align: center;
+
+	h1 {
+		font-size: 2rem;
+		color: $dark-desaturated-blue;
+	}
+
+	p {
+		position: relative;
+		margin: 0.5em;
+		font-size: 1.4rem;
+		line-height: 1.8;
+
+		.line-break {
+			display: block;
+		}
+
+		&::before,
+		&::after {
+			position: absolute;
+			left: 50%;
+			border: 1px solid $grayish-blue;
+			border-radius: 50%;
+			opacity: 0.3;
+			content: '';
+		}
+
+		&::before {
+			top: 20%;
+			height: 10em;
+			width: 10em;
+			transform: translate(-50%, -50%);
+		}
+
+		&::after {
+			top: -140%;
+			height: 5em;
+			width: 5em;
+		}
+	}
+}
+
+.container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 1em 2em;
+
+	.slider-box {
+		position: absolute;
+		top: -500%;
+		width: 90%;
+		background-color: $white;
+		border-radius: 1rem;
+		text-align: center;
+		box-shadow: 0 0 1rem $light-grayish-blue;
+
+		&__top,
+		&__bottom {
+			padding: 1.8em;
+		}
+
+		&__top {
+			border-bottom: 1px solid $light-grayish-blue;
+
+			&-info {
+				.views {
+					font-weight: bold;
+					text-transform: uppercase;
+					letter-spacing: 2px;
+				}
+			}
+
+			.price {
+				&--one {
+					display: none;
+				}
+
+				&-amount {
+					font-size: 3rem;
+					color: $dark-desaturated-blue;
+					font-weight: bold;
+				}
+			}
+
+			.price-slider {
+				width: 100%;
+				height: 1rem;
+				margin: 2.5em 0;
+				background: linear-gradient(
+					to right,
+					$soft-cyan 0%,
+					$soft-cyan 50%,
+					$light-grayish-blue 0%,
+					$light-grayish-blue 100%
+				);
+				border-radius: 0.5rem;
+				-webkit-appearance: none;
+
+				&::-webkit-slider-thumb {
+					height: 40px;
+					width: 40px;
+					background-color: $strong-cyan;
+					background-image: url('../images/icon-slider.svg');
+					background-position: center;
+					background-repeat: no-repeat;
+					border-radius: 50%;
+					box-shadow: 0 1rem 1.5rem $soft-cyan;
+					cursor: grab;
+					transition: background-color 0.3s;
+					-webkit-appearance: none;
+
+					&:hover {
+						background-color: $soft-cyan;
+					}
+				}
+			}
+
+			&-billing {
+				width: 100%;
+				margin-top: 5rem;
+				text-align: center;
+
+				p {
+					display: inline-block;
+					padding-right: 0.5em;
+					font-size: 1.2rem;
+					line-height: 2;
+
+					&:first-of-type {
+						padding-left: 2em;
+					}
+
+					&:nth-of-type(2) {
+						padding: 0;
+					}
+				}
+
+				.switch {
+					position: relative;
+					display: inline-block;
+					width: 4.5rem;
+					height: 2rem;
+					margin: 0 0.5em 0 0;
+
+					.switch-toggle {
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						background-color: $light-grayish-blue;
+						border-radius: 1rem;
+						transition: background-color 0.3s;
+
+						&:hover {
+							background-color: $strong-cyan;
+						}
+
+						&::before {
+							position: absolute;
+							left: 0.3rem;
+							top: 0.3rem;
+							height: 1.4rem;
+							width: 1.4rem;
+							background-color: $white;
+							border-radius: 50%;
+							transition: transform 0.3s;
+							content: '';
+						}
+					}
+
+					.checkbox {
+						opacity: 0;
+					}
+
+					.checkbox:checked + .switch-toggle {
+						background-color: $strong-cyan;
+					}
+
+					.checkbox:checked + .switch-toggle::before {
+						transform: translateX(2.5rem);
+					}
+				}
+
+				.discount {
+					display: inline-block;
+					padding: 0.1em 0.5em;
+					background-color: $pale-red;
+					border-radius: 1rem;
+					font-size: 1.1rem;
+					color: $light-red;
+
+					&--one {
+						display: none;
+					}
+				}
+			}
+		}
+
+		&__bottom {
+			&-list {
+				margin-bottom: 3em;
+				font-size: 1.2rem;
+				list-style: none;
+				line-height: 2.5;
+
+				svg {
+					margin-right: 1em;
+				}
+			}
+
+			&-btn {
+				padding: 1em 4em;
+				background-color: $dark-desaturated-blue;
+				border-radius: 2rem;
+				font-size: 1.3rem;
+				color: $light-grayish-blue;
+				text-decoration: none;
+				cursor: pointer;
+				transition: color 0.3s;
+
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+@import '_medium.scss';
+@import '_large.scss';
